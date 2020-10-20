@@ -14,17 +14,16 @@ public class Slider : MonoBehaviour
     bool key = true;
     public Vector3 startPos;
     public GameObject prefab1;
-    private GameObject prefab2;
+    // private GameObject prefab2;
     public GameObject obj;
 
     // Start is called before the first frame update
     void Start()
     {
         GameObject Canvas = GameObject.Find("Canvas");
-        prefab2 = prefab1;
-        
+        // prefab2 = prefab1;
         prefab1.transform.SetParent(Canvas.transform, false);
-        prefab2.transform.SetParent(Canvas.transform, false);
+        // prefab2.transform.SetParent(Canvas.transform, false);
     }
 
     // Update is called once per frame
@@ -34,7 +33,7 @@ public class Slider : MonoBehaviour
         if ( Music.IsJustChangedBar() )
         {
 
-                PrefabNew();
+            PrefabNew();
 
             // StartCoroutine(StartSlidePanel());
         }
@@ -51,7 +50,7 @@ public class Slider : MonoBehaviour
         else
         {
             prefab1.transform.localScale = new Vector3(1,1,1);
-            Instantiate( prefab2 , obj.transform );
+            Instantiate( prefab1 , obj.transform );
             key = true;
         }
     }
