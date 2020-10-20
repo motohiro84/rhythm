@@ -21,7 +21,8 @@ public class Slider : MonoBehaviour
     void Start()
     {
         GameObject Canvas = GameObject.Find("Canvas");
-        prefab1.transform.localScale = new Vector3(2,2,2);
+        prefab2 = prefab1;
+        
         prefab1.transform.SetParent(Canvas.transform, false);
         prefab2.transform.SetParent(Canvas.transform, false);
     }
@@ -32,16 +33,9 @@ public class Slider : MonoBehaviour
         
         if ( Music.IsJustChangedBar() )
         {
-            if(key)
-            {
+
                 PrefabNew();
-                key = false;
-            }
-            else
-            {
-                PrefabNew();
-                key = true;
-            }
+
             // StartCoroutine(StartSlidePanel());
         }
     }
@@ -50,11 +44,15 @@ public class Slider : MonoBehaviour
     {
         if(key)
         {
+            prefab1.transform.localScale = new Vector3(2,2,2);
             Instantiate( prefab1 , obj.transform );
+            key = false;
         }
         else
         {
+            prefab1.transform.localScale = new Vector3(1,1,1);
             Instantiate( prefab2 , obj.transform );
+            key = true;
         }
     }
 

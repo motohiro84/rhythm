@@ -20,12 +20,12 @@ public class Slide : MonoBehaviour
         StartCoroutine(StartSlidePanel());
     }
 
-        private IEnumerator StartSlidePanel()
+    private IEnumerator StartSlidePanel()
     {
         float startTime = Time.time;
         Vector3 moveDistance;
 
-        if(SenderKey.leftKey)
+        if(this.transform.localScale == new Vector3(2,2,2))
         {
             moveDistance = (inPosition1 - startPos);
             SenderKey.leftKey = false;
@@ -42,6 +42,15 @@ public class Slide : MonoBehaviour
             yield return 0;
         }
         transform.localPosition = startPos + moveDistance;
+
+        if(this.transform.localScale == new Vector3(2,2,2) & transform.localPosition == inPosition1)
+        {
+            Destroy(gameObject);
+        }
+        else if(this.transform.localScale == new Vector3(1,1,1) & transform.localPosition == inPosition2)
+        {
+            Destroy(gameObject);
+        }
 
     }
 
