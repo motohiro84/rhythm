@@ -23,21 +23,21 @@ public class Example : MonoBehaviour
         if ( Music.IsJustChangedBar() )
         {
             r.material.SetColor("_EmissionColor", coloring1);
-            DOTween
-                .To( value => OnRotate( value ), 0, 1, 0.5f )
-                .SetEase( Ease.OutCubic )
-                .OnComplete( () => transform.localEulerAngles = new Vector3( 45, 45, 0 ) )
-            ;
+            // DOTween
+            //     .To( value => OnRotate( value ), 0, 1, 0.5f )
+            //     .SetEase( Ease.OutCubic )
+            //     .OnComplete( () => transform.localEulerAngles = new Vector3( 45, 45, 0 ) )
+            // ;
         }
         // 拍に来たフレームで true になる
         else if ( Music.IsJustChangedBeat() )
         {
             r.material.SetColor("_EmissionColor", coloring2);
-            DOTween
-                .To( value => OnScale( value ), 0, 1, 0.1f )
-                .SetEase( Ease.InQuad )
-                .SetLoops( 2, LoopType.Yoyo )
-            ;
+            // DOTween
+            //     .To( value => OnScale( value ), 0, 1, 0.1f )
+            //     .SetEase( Ease.InQuad )
+            //     .SetLoops( 2, LoopType.Yoyo )
+            // ;
         }
     }
 
